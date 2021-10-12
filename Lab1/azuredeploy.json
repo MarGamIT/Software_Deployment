@@ -34,7 +34,7 @@
         "workerSize": "0",
         "workerSizeId": "0",
         "numberOfWorkers": "1",
-        "linuxFxVersion": "NODE|lts",
+        "linuxFxVersion": "NODE|14-lts",
         "hostingPlanName": "[concat('hpn-', resourceGroup().name)]"
     },
     "resources": [

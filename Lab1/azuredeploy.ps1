@@ -1,5 +1,4 @@
 $rg = 'arm-demo-gamperl'
-New-AzureRmResourceGroup -Name $rg -Location northeurope -Force
 
 New-AzureRmResourceGroupDeployment `
     -Name 'new-storage' `

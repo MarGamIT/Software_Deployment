@@ -7,7 +7,7 @@ https://lab2-markus-gamperl.azurewebsites.net/
 ### Geforderte Bilder/Dokumentation
 Die geforderten Bilder zu den Pipelines, Fehler, und Buildverlauf befinden sich im Ordner Images.
 ## Vorgehensweise
-1. Node/Express Web App erstellt, in meinem Fall einen einfachen Rechner.
+1. Node/Express Web App erstellt, in meinem Fall einen einfachen Rechner
 2. Tests mit Mocha erstellt
 3. Zwei Web Apps anlegen (Dev & Production) inkl. Aktivierung von Azure Insights
 4. Build Pipeline erstellen

@@ -1,4 +1,13 @@
 # Lab 2
+## UPDATE 04.11.2021
+Fehler beim Aufrufen der Website: "The service is unavailable."
+Der Fehler tritt auf, da sozusagen die verfügbaren Resourcen vom gewählten App-Service-Plan (Free Tier) aufgebraucht wurden.
+
+Fehler wird hier beschrieben:
+1. https://docs.microsoft.com/en-us/answers/questions/412843/cannot-deploy-my-app-services-http-error-503-the-s.html
+2. https://stackoverflow.com/questions/36134141/http-error-503-the-service-is-unavailable-in-azure-server-for-rest-services-dep
+
+Nach kurzzeitigen Upgraden des App-Service-Plans war die Website wieder wie gewohnt online. Ich habe sie dann jedoch sofort wieder, aufgrund der evtl. anfallenden Kosten, auf Free Tier (F1) gedowngradet. Das heißt: bei der Korrektur dieses Labs könnte die Website wiederrum nicht erreichbar sein und, folgedessen, müsste ich dann die Website "manuell" erneut online schalten.
 ## Links
 ### NodeJS Web App Dev
 https://lab2-markus-gamperl-dev.azurewebsites.net/

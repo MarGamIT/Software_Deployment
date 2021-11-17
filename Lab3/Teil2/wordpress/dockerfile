@@ -1,0 +1,36 @@
+FROM debian:jessie
+
+ENV DB_NAME=wordpress
+ENV DB_USER=margam
+ENV DB_PW=abc123
+ENV DB_HOST=local
+
+RUN apt update
+RUN apt upgrade
+RUN apt install -y wget
+
+#install LAMP
+RUN apt-get install -y apache2
+RUN apt-get update
+RUN apt-get install -y php5 libapache2-mod-php5 php5-mcrypt php5-mysql unzip
+
+#install Wordpress
+RUN cd /var/www/html/ && \
+    wget https://wordpress.org/latest.zip && \
+    apt install -y unzip && \
+    unzip -q latest.zip && \
+    chown -R www-data:www-data /var/www/html/wordpress && \
+    chmod -R 755 /var/www/html/wordpress && \
+    mkdir -p /var/www/html/wordpress/wp-content/uploads && \
+    chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads
+
+
+EXPOSE 80
+
+VOLUME /var/www/html
+
+CMD sed -i "s/database_name_here/$DB_NAME/g" /etc/wordpress/config-localhost.php && \
+sed -i "s/username_here/$DB_USER/g" /etc/wordpress/config-localhost.php && \
+sed -i "s/password_here/$DB_PW/g" /etc/wordpress/config-localhost.php && \
+sed -i "s/localhost/$DB_HOST/g" /etc/wordpress/config-localhost.php && \
+apachectl -D FOREGROUND

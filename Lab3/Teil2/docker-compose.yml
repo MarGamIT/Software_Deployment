@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  db:
+    build:
+      context: ./mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      DB_ROOT_PW : 123abc
+      DB_NAME : lab3
+      DB_USER : margam
+      DB_PASSWORD : 123abc
+      
+  wordpress:
+    depends_on:
+      - db
+    build: 
+      context: ./wordpress
+    volumes:
+      - wordpress_data:/var/www/html
+    restart: always
+    ports:
+      - "8000:80"
+    environment:
+      DB_NAME : wordpress
+      DB_USER : margam
+      DB_PW : abc123
+      DB_HOST : db:3306
+
+volumes:
+  db_data: {}
+  wordpress_data: {}

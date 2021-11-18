@@ -22,7 +22,7 @@ VOLUME [ "/var/lib/mysql" ]
 EXPOSE 3306
 
 CMD service mysql restart && \
-    mysql --password=${DB_ROOT_PW} -e "CREATE USER ${DB_USER} IDENTIFIED BY '$DB_PASSWORD'" || true && \
+    mysql --password=${DB_ROOT_PW} -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '$DB_PASSWORD'" || true && \
     mysql --password=${DB_ROOT_PW} -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME}" && \
     mysql --password=${DB_ROOT_PW} -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO ${DB_USER} IDENTIFIED BY '$DB_PASSWORD'" && \
     mysqld

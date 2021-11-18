@@ -10,6 +10,7 @@ Hilfreiche Links zur Ausarbeitung:
 2. https://www.linode.com/docs/guides/how-to-install-mysql-on-debian-8/
 3. https://computingforgeeks.com/how-to-install-mysql-8-0-on-debian/
 4. https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql
+5. https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/
 
 Um das MySQL Image zu builden einfach in den Folder gehen und dort den Command "docker build ." ausführen.
 ### Wordpress

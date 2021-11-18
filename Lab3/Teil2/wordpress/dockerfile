@@ -1,10 +1,5 @@
 FROM debian:jessie
 
-ENV DB_NAME=wordpress
-ENV DB_USER=margam
-ENV DB_PW=abc123
-ENV DB_HOST=local
-
 RUN apt update
 RUN apt upgrade
 RUN apt install -y wget
@@ -29,9 +24,4 @@ EXPOSE 80
 
 VOLUME /var/www/html
 
-CMD cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wordpress-config.php && \
-sed -i "s/database_name_here/$DB_NAME/g" /var/www/html/wordpress/wordpress-config.php && \
-sed -i "s/username_here/$DB_USER/g" /var/www/html/wordpress/wordpress-config.php && \
-sed -i "s/password_here/$DB_PW/g" /var/www/html/wordpress/wordpress-config.php && \
-sed -i "s/localhost/$DB_HOST/g" /var/www/html/wordpress/wordpress-config.php && \
-apachectl -D FOREGROUND
+CMD apachectl -D FOREGROUND

@@ -8,10 +8,10 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      DB_ROOT_PW : 123abc
-      DB_NAME : lab3
-      DB_USER : margam
-      DB_PASSWORD : 123abc
+      DB_ROOT_PW: 123abc
+      DB_NAME: wordpress
+      DB_USER: margam2
+      DB_PASSWORD: abc
       
   wordpress:
     depends_on:
@@ -23,12 +23,7 @@ services:
     restart: always
     ports:
       - "8000:80"
-    environment:
-      DB_NAME : wordpress
-      DB_USER : margam
-      DB_PW : abc123
-      DB_HOST : db:3306
-
+      
 volumes:
   db_data: {}
   wordpress_data: {}

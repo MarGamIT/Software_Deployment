@@ -29,8 +29,9 @@ EXPOSE 80
 
 VOLUME /var/www/html
 
-CMD sed -i "s/database_name_here/$DB_NAME/g" /etc/wordpress/config-localhost.php && \
-sed -i "s/username_here/$DB_USER/g" /etc/wordpress/config-localhost.php && \
-sed -i "s/password_here/$DB_PW/g" /etc/wordpress/config-localhost.php && \
-sed -i "s/localhost/$DB_HOST/g" /etc/wordpress/config-localhost.php && \
+CMD cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wordpress-config.php && \
+sed -i "s/database_name_here/$DB_NAME/g" /var/www/html/wordpress/wordpress-config.php && \
+sed -i "s/username_here/$DB_USER/g" /var/www/html/wordpress/wordpress-config.php && \
+sed -i "s/password_here/$DB_PW/g" /var/www/html/wordpress/wordpress-config.php && \
+sed -i "s/localhost/$DB_HOST/g" /var/www/html/wordpress/wordpress-config.php && \
 apachectl -D FOREGROUND
